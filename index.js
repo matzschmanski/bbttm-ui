@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 var http = require('http').Server(app);
+var port = process.env.PORT || 8080;
+
 var io = require('socket.io')(http);
 
 var currentColor = "blue";
@@ -34,6 +36,9 @@ function getRandomColor(){
   return color;
 }
 
-http.listen(3000, function(){
-	  console.log('listening on *:3000');
+// http.listen(3000, function(){
+// 	  console.log('listening on *:3000');
+// });
+http.listen(port, function() {
+	console.log('Our app is running on http://localhost:' + port);
 });
